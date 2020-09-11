@@ -1,4 +1,5 @@
 import rough from "../node_modules/roughjs/bin/rough";
+import "../node_modules/canvas-5-polyfill/canvas";
 
 var RoughCanvas = L.Canvas.extend({
   _initContainer: function () {

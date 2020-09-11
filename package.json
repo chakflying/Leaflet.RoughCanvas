@@ -11,14 +11,22 @@
   "author": "haoming",
   "license": "MIT",
   "dependencies": {
+    "@babel/runtime": "^7.11.2",
+    "canvas-5-polyfill": "^0.1.5",
+    "core-js": "^3.6.5",
     "roughjs": "^2.0.0"
   },
   "devDependencies": {
-    "rollup": "^0.56.5"
+    "@babel/core": "^7.11.6",
+    "@babel/plugin-transform-runtime": "^7.11.5",
+    "@babel/preset-env": "^7.11.5",
+    "@rollup/plugin-babel": "^5.2.1",
+    "rollup": "^2.26.11",
+    "rollup-plugin-terser": "^7.0.2"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/zhuang-hao-ming/Leaflet.RoughCanvas.git"
+    "url": "git://github.com/chakflying/Leaflet.RoughCanvas.git"
   },
   "keywords": [
     "map",
