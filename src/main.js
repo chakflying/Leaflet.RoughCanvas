@@ -20,7 +20,7 @@ var RoughCanvas = L.Canvas.extend({
       return;
     }
 
-    // this._layers[layer._leaflet_id] = layer;
+    this._layers[layer._leaflet_id] = layer;
 
     var options = layer.options;
     var pathOption = {};
