@@ -20,8 +20,6 @@ var RoughCanvas = L.Canvas.extend({
       return;
     }
 
-    this._layers[layer._leaflet_id] = layer;
-
     var options = layer.options;
     var pathOption = {};
 
@@ -46,6 +44,24 @@ var RoughCanvas = L.Canvas.extend({
     // layer.options.opacity = 0;
     L.Canvas.prototype._updatePoly.call(this, layer, closed);
   },
+
+  _onClick: function (e) {
+    var point = this._map.mouseEventToLayerPoint(e), layer, clickedLayer;
+    console.log(point);
+
+		for (var order = this._drawFirst; order; order = order.next) {
+			layer = order.layer;
+			if (layer.options.interactive && layer._containsPoint(point)) {
+				if (!(e.type === 'click' || e.type !== 'preclick') || !this._map._draggableMoved(layer)) {
+					clickedLayer = layer;
+				}
+			}
+		}
+		if (clickedLayer)  {
+			DomEvent.fakeStop(e);
+			this._fireEvent([clickedLayer], e);
+		}
+	},
 });
 
 L.Canvas.RoughCanvas = RoughCanvas;
